@@ -24,7 +24,7 @@ export const UserListMedia = gql(`
     },
     relations {
       edges {
-        relationType(version:2)
+        relationType(version:3)
         node {
           id
         }
@@ -55,7 +55,7 @@ const EdgeMedia = gql(`
     seasonYear,
     relations {
       edges {
-        relationType(version:2),
+        relationType(version:3),
         node {
           ...RelationMedia,
           type,
@@ -78,7 +78,7 @@ const EdgeMedia = gql(`
 
 export const MediaEdgeFrag = gql(`
   fragment MediaEdgeFrag on MediaEdge @_unmask {
-    relationType(version:2),
+    relationType(version:3),
     node {
       ...EdgeMedia
     }
