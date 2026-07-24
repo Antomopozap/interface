@@ -701,6 +701,7 @@
       if (isMiniplayer) return
       if ('code' in event && event.code === 'Space') return endFF()
       if ('pointerId' in event) document.releasePointerCapture(event.pointerId)
+      if ('pointerType' in event && event.pointerType !== 'mouse') endFF()
     }, ctrl)
     document.addEventListener('click', e => {
       if (isMiniplayer) return
