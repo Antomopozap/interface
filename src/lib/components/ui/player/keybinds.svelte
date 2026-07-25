@@ -30,7 +30,13 @@
     if (!code && 'key' in e) code = codeMap[e.key] ?? ''
 
     const kbn = get(binds)
-    if (cnd(code)) kbn[layout[code] ?? code]?.fn?.(e)
+    if (cnd(code)) {
+      const fn = kbn[layout[code] ?? code]?.fn
+      if (fn) {
+        e.preventDefault()
+        fn(e)
+      }
+    }
   }
 
   export function loadWithDefaults (defaults: Partial<Record<string, Bind>>) {
